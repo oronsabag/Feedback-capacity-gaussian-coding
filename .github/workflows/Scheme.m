@@ -80,7 +80,7 @@ for j=1:EXP
         end
     end
 %     e      = z - sys.H*sh(1:end-1);
-    MSE(j) = (z0(end)-sh(1))^2;
+    MSE(j) = (z0(end)-sys.Kp*sh(1))^2;
 end
 plot(z0);
 sh(1)
