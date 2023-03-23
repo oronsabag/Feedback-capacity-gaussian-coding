@@ -20,4 +20,7 @@ CVX.Gamma = Gamma;
 CVX.HAT_Sig = Sig;
 CVX.Pi = Pi;
 CVX.PsiY = Pi + sys.H*CVX.HAT_Sig*sys.H' + Gamma*sys.H' + sys.H*Gamma' + sys.Psi;
-CVX.KY = (sys.F*CVX.Gamma + sys.F*CVX.HAT_Sig*sys.H + 1)*inv(CVX.PsiY);
+CVX.KY = (sys.F*CVX.Gamma + sys.F*CVX.HAT_Sig*sys.H + sys.Kp*sys.Psi)*inv(CVX.PsiY);
+
+M = num2str(Pi-Gamma*inv(Sig)*Gamma);
+disp(sprintf('M is equal to %s',M));
